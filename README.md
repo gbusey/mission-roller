@@ -2,6 +2,8 @@
 
 A browser-only GM utility for resolving Pathfinder 2e organization missions. 
 
+The page includes Cloudflare Web Analytics using the beacon configured in `index.html`.
+
 ## Rules
 
 Enter a positive whole-number Mission DC and adjust the three modifiers. The success chance counts d20 faces whose modified total meets or exceeds the DC, including critical successes. Each face contributes 5 percentage points. Natural 1 and 20 adjustments apply only to the rolled outcome.
