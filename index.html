@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Resolve Pathfinder 2e organization missions with a single d20 roll.">
+  <meta name="theme-color" content="#111316">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Mission Roller</title>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <p class="eyebrow">Pathfinder 2e · GM utility</p>
+      <h1>Mission Roller</h1>
+      <p>Set the difficulty and modifiers, then roll to resolve the mission.</p>
+    </header>
+
+    <div class="layout">
+      <form class="panel" id="mission-form" novalidate>
+        <h2>Mission setup</h2>
+
+        <label for="dc">Mission DC</label>
+        <input id="dc" type="number" inputmode="numeric" min="1" step="1" value="20" required
+          aria-describedby="dc-error">
+        <p class="error" id="dc-error" hidden>Enter a positive whole number for the Mission DC.</p>
+
+        <div class="slider">
+          <div class="slider-heading">
+            <label for="leader">Leader Bonus</label>
+            <span id="leader-value" aria-hidden="true">+0</span>
+          </div>
+          <input id="leader" type="range" min="0" max="11" value="0">
+        </div>
+
+        <div class="slider">
+          <div class="slider-heading">
+            <label for="advantages">Advantages</label>
+            <span id="advantages-value" aria-hidden="true">+0</span>
+          </div>
+          <input id="advantages" type="range" min="0" max="4" value="0">
+        </div>
+
+        <div class="slider">
+          <div class="slider-heading">
+            <label for="penalties">Penalties</label>
+            <span id="penalties-value" aria-hidden="true">0</span>
+          </div>
+          <input id="penalties" type="range" min="0" max="4" value="0">
+        </div>
+
+        <dl class="readouts">
+          <div>
+            <dt>Total modifier</dt>
+            <dd id="modifier">+0</dd>
+          </div>
+          <div>
+            <dt>Success chance</dt>
+            <dd id="chance">5%</dd>
+          </div>
+        </dl>
+        <p class="hint">Success chance includes critical success and ignores natural 1 and 20 adjustments.</p>
+
+        <div class="actions">
+          <button class="roll" type="submit">Roll d20</button>
+          <button class="reset" type="reset">Reset</button>
+        </div>
+      </form>
+
+      <section class="panel outcome" aria-labelledby="outcome-title">
+        <h2 id="outcome-title">Mission result</h2>
+        <p id="empty-result">Roll the d20 to see the outcome.</p>
+        <div role="status" aria-live="polite" aria-atomic="true">
+          <div id="result" hidden>
+            <h3 id="degree"></h3>
+            <dl class="roll-details">
+              <div><dt>Natural d20</dt><dd id="natural"></dd></div>
+              <div><dt>Total modifier</dt><dd id="rolled-modifier"></dd></div>
+              <div><dt>Final roll total</dt><dd id="total"></dd></div>
+              <div><dt>Mission DC</dt><dd id="rolled-dc"></dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
